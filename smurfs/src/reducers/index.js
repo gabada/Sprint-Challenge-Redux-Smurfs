@@ -1,4 +1,4 @@
-import { FETCHING, SUCCESS, FAILURE, ADD_SUCCESS, ADD_FAILURE } from '../actions';
+import { FETCHING, SUCCESS, FAILURE, ADD_SUCCESS, ADD_FAILURE, REMOVE_SUCCESS, REMOVE_FAILURE } from '../actions';
 
 /*
   Be sure to import in all of the action types from `../actions`
@@ -58,6 +58,16 @@ export const smurfReducer = (state = initialState, action) => {
         smurfs: action.payload
       }
     case ADD_FAILURE:
+      return {
+        ...state,
+        error: action.payload
+      }
+    case REMOVE_SUCCESS:
+      return {
+        ...state,
+        smurfs: action.payload
+      }
+    case REMOVE_FAILURE:
       return {
         ...state,
         error: action.payload

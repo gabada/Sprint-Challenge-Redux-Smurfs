@@ -10,6 +10,9 @@ export const FAILURE = "FAILURE";
 export const ADD_SMURF = "ADD_SMURF";
 export const ADD_SUCCESS = "ADD_SUCCESS";
 export const ADD_FAILURE = "ADD_FAILURE";
+export const REMOVE_SMURF = "REMOVE_SMURF";
+export const REMOVE_SUCCESS = "REMOVE_SUCCESS";
+export const REMOVE_FAILURE = "REMOVE_FAILURE";
 
 
 /*
@@ -50,5 +53,21 @@ export const addSmurf = smurf => dispatch => {
       })
       .catch(err => {
           dispatch({ type: ADD_FAILURE, payload: "Gargamel's cat ate the new smurf"});
+      });
+}
+
+export const removeSmurf = id => dispatch => {
+  dispatch({ type: REMOVE_SMURF });
+  axios
+      .delete(`http://localhost:3333/smurfs/${id}`)
+      .then(res => {
+        console.log(res);
+          dispatch({
+              type: REMOVE_SUCCESS,
+              payload: res.data
+          });
+      })
+      .catch(err => {
+          dispatch({ type: REMOVE_FAILURE, payload: "The smurf is hiding from you!"});
       });
 }

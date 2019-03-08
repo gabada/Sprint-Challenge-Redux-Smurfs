@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchData, addSmurf } from '../actions';
+import { fetchData, addSmurf, removeSmurf } from '../actions';
 
 import './SmurfList.css';
 
@@ -19,6 +19,7 @@ componentDidMount() {
                 <li>Name: {smurf.name}</li>
                 <li>Age: {smurf.age} Smurf years old</li>
                 <li>Height: {smurf.height}</li>
+                <button onClick={() => this.props.removeSmurf(smurf.id)}>DELETE</button>
                 </ul>
             )
             })}
@@ -36,6 +37,7 @@ export default connect(
     mapStateToProps,
     {
         fetchData,
-        addSmurf
+        addSmurf,
+        removeSmurf
     }
 )(SmurfList);

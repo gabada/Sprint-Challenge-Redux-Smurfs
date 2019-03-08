@@ -33,7 +33,14 @@ reducers - pure functions that are made up of a switch statement. They have diff
 store - An object that stores our state tree. You connect your components to this store so that they can get the global state. The store is the ‘single source of truth’ because you connect it to all your components and the only way to change it is through actions and reducers. So every component that is connected will always have the same state.
 
 
-- [ ] What is the difference between Application state and Component state? When would be a good time to use one over the other?
+- [X] What is the difference between Application state and Component state? When would be a good time to use one over the other?
+
+
+
+Application state is held in the Redux store and is the same for every component you wire into it. Component state lives on a class in the component and can be updated on the component and pushed to any other component which you pass that state to. When you have a big app with lots of state its recommended to use Redux and Application state to make your life managing all the state easier. You would use Component state for a small app that doesn’t have much state or on a form within a bigger app, so you don’t have to wire up Redux state for a simple form.
+
+
+
 - [ ] Describe `redux-thunk`, what does it allow us to do? How does it change our `action-creators`?
 
 ## Project Set Up

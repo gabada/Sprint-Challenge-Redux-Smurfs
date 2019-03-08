@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-// import { connect } from 'react-redux';
-// import { fetchData, addSmurf } from '../actions';
+import { connect } from 'react-redux';
+import { addSmurf } from '../actions';
 
 import SmurfList from './SmurfList';
+import SmurfForm from './SmurfForm';
 
 import './App.css';
 /*
@@ -13,31 +14,27 @@ import './App.css';
  */
 class App extends Component {
 
-  // componentDidMount() {
-  //   this.props.fetchData();
-  // }
-
   render() {
     return (
       <div className="App">
         <h1>SMURFS! 2.0 W/ Redux</h1>
         <SmurfList />
+        <SmurfForm addSmurf={this.props.addSmurf}/>
       </div>
     );
   }
 }
 
-// const mapStateToProps = state => ({
-//     smurfs: state.smurfs,
-//     fetching: state.fetching
-// })
+const mapStateToProps = state => ({
+    smurfs: state.smurfs,
+    fetching: state.fetching
+})
 
-// export default connect(
-//     mapStateToProps,
-//     {
-//         fetchData,
-//         addSmurf
-//     }
-// )(App);
+export default connect(
+    mapStateToProps,
+    {
+      addSmurf
+    }
+)(App);
 
-export default (App);
+// export default (App);

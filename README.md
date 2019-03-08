@@ -41,7 +41,15 @@ Application state is held in the Redux store and is the same for every component
 
 
 
-- [ ] Describe `redux-thunk`, what does it allow us to do? How does it change our `action-creators`?
+- [X] Describe `redux-thunk`, what does it allow us to do? How does it change our `action-creators`?
+
+
+
+Redux-thunk is a piece of middleware which allows our flow to be asynchronous so our action-creators can make API calls. API calls being asynchronous is important because if they were synchronous our apps would be "frozen" while waiting for API’s to respond to our requests. Making them asynchronous allows us to load different pages or show loading messages while we wait for the API responses.
+
+
+
+
 
 ## Project Set Up
 

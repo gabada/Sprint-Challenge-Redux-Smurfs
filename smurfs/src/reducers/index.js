@@ -52,6 +52,11 @@ export const smurfReducer = (state = initialState, action) => {
         smurfs: [],
         error: action.payload
       };
+    case ADD_SUCCESS:
+      return {
+        ...state,
+        smurfs: action.payload
+      };
     default:
       return state;
   };

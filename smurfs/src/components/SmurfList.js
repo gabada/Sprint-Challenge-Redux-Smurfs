@@ -13,9 +13,9 @@ componentDidMount() {
     render() {
         return (
         <div>
-            {this.props.smurfs.map((smurf, index) => {
+            {this.props.smurfs.map(smurf => {
             return (
-                <ul key={index}>
+                <ul key={smurf.id}>
                 <li>Name: {smurf.name}</li>
                 <li>Age: {smurf.age} Smurf years old</li>
                 <li>Height: {smurf.height}</li>
